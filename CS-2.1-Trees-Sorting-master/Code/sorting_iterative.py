@@ -14,7 +14,13 @@ def bubble_sort(items):
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Repeat until all items are in sorted order
+    swap_counter = - 1;
     # TODO: Swap adjacent items that are out of order
+    for i in (items - 1):
+        swap_counter = 0
+        if items[i] > items[i + 1]:
+            items[i], items[i + 1 ] == items[i + 1 ], items[i]
+            swap_counter += 1
 
 
 def selection_sort(items):
