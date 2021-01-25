@@ -31,7 +31,7 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
-
+#find lowest num in list compare to index 1; swap
 
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
