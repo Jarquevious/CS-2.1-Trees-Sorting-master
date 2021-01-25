@@ -47,8 +47,11 @@ def insertion_sort(items):
 ####Test Code for bubble sort###
 # Array for items
 items = [56,34,24,14,10,4,6,3]
+#Call the bubble 
 bubble_sort(items)
+# Print Statement to illustrate complete sorted array
 print(items)
 
 
 ###Test Code for insert###
+# Array
