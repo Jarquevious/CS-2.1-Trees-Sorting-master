@@ -43,17 +43,14 @@ def insertion_sort(items):
     # TODO: Insert it in sorted order in front of items
     
     for index in range(1, len(items)):
-        right_Index = items[i] 
-        left_Index = items[i-1]
+        value = items[index]
+        print()
+        print(value) 
+        i = items[index-1]
+        print(i)
+        break
         
-        while i > 0:
-            if left_Index < right_Index:
-                left_Index, right_Index = right_Index, left_Index
-                i -= 1
-            else:
-                break
-    return items     
-
+        
 
 
 
