@@ -16,7 +16,12 @@ def merge_sort(items):
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check if list is so small it's already sorted (base case)
+    if len(items) == 1:
+        return items
     # TODO: Split items list into approximately equal halves
+    elif new_items = items/2
+    left = range(0, (new_items/2) - 1)
+    right = 
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
 
