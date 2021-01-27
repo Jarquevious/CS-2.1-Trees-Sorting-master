@@ -41,13 +41,17 @@ def insertion_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
-    items_length = range(1, len(items))
-    for i in items_length:
-        left_Index = items[i] 
-        right_Index = items[i-1]
-        while left_Index > right_Index and i > 0:
-            left_Index, right_Index = right_Index, left_Index
-            i -= 1
+    
+    for index in range(1, len(items)):
+        right_Index = items[i] 
+        left_Index = items[i-1]
+        
+        while i > 0:
+            if left_Index < right_Index:
+                left_Index, right_Index = right_Index, left_Index
+                i -= 1
+            else:
+                break
     return items     
 
 
@@ -63,5 +67,6 @@ print(items)
 
 
 ###Test Code for insert###
-items=[2,376,6573,67,9,4,7,94,65,56745]
+items=[376,2,6573,67,9,4,7,94,65,56745]
+insertion_sort(items)
 print(insertion_sort(items))

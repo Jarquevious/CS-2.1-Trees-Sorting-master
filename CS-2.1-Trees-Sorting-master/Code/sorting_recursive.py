@@ -19,7 +19,7 @@ def merge_sort(items):
     if len(items) == 1:
         return items
     # TODO: Split items list into approximately equal halves
-    elif new_items = items/2
+    elif new_items == ((items)/2):
     left = range(0, (new_items/2) - 1)
     right = 
     # TODO: Sort each half by recursively calling merge sort
