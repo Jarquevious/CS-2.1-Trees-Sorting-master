@@ -31,7 +31,24 @@ def selection_sort(items):
     # TODO: Repeat until all items are in sorted order
     # TODO: Find minimum item in unsorted items
     # TODO: Swap it with first unsorted item
-#find lowest num in list compare to index 1; swap
+    # find lowest num in list compare to index 1; swap
+    for i in range(0, len(items) - 1):
+        minimum_value = i
+
+        for j in range(i + 1, len(items)):
+            if items[j] < items[minimum_value]:
+                minimum_value = j
+
+        if minimum_value != i:
+            items[minimum_value], items[i] = items[i], items[minimum_value]
+
+    return items
+
+
+
+
+
+
 
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
@@ -42,6 +59,7 @@ def insertion_sort(items):
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items
     
+    # Search through the list starting at index 1.
     for i in range(1, len(items)):
 
         while items[i-1] > items[i] and i > 0:
@@ -68,9 +86,16 @@ bubble_sort(items)
 print(items)
 
 
+
+###Test Code for selection###
+items=[[56,34,24,14,10,4,6,3]]
+print('')
+print(selection_sort(items))
+
 ###Test Code for insert###
 items=[376,2,6573,67,9,4,7,94,65,56745]
 print('')
 print('Array is Insertion Sorted')
 insertion_sort(items)
 print(insertion_sort(items))
+
