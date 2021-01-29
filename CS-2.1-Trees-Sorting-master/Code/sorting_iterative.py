@@ -10,7 +10,7 @@ def is_sorted(items):
         return True
     
     item_to_sort = items[0]
-    for i in range(1, len(items)):
+    for i in range(1, len(items)): #o(n)
         if item_to_sort > items[i]:          
             return False
         item_to_sort = items[i]
@@ -25,12 +25,17 @@ def bubble_sort(items):
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Repeat until all items are in sorted order
     # TODO: Swap adjacent items that are out of order
-     
-    isSort = False,
-    while isSort == True:
-        for i in range(len(items) - 1):
-            if items[i] > items[i+1]:
-                items[i], items[i+1] = items[i+1], items[i]
+    num_items = len(items)
+    # loop over items from 0 to length of items
+    for i in range(num_items-1):                        
+        # loop over items from 0 to i minus 1 for comparing
+        for j in range(0, num_items-i-1):
+            # check if second to last item is greater than last item
+            if items[j] > items[j+1]:
+                # swapping
+                (items[j], items[j+1]) = (items[j+1], items[j])
+                
+    return items
 
 def selection_sort(items):
     """Sort given items by finding minimum item, swapping it with first
@@ -84,10 +89,10 @@ print('')
 # Array for items
 items = [5,8,2,4,1,6,13,25,6,20]
 #Call the bubble function
-bubble_sort(items)
 # Print Statement to illustrate complete sorted array
 print("Bubble Sort:")
-print(items)
+print(bubble_sort(items))
+
 
 ###Test Code for selection###
 items=[5,8,2,4,1,6,13,25,6,20]
