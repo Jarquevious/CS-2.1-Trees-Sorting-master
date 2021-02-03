@@ -32,12 +32,10 @@ def merge(items1, items2):
     return sorted_list
         
 
-items1 = [9,4,6,23,65,34,44]
-items2 = [23,65,8,3,45,87,34]
-print(merge(items1, items2))
-
-
-
+items1 = [4,5,6,7,8,9]
+items2 = [23,24,25,26,27,28]
+new_list=merge(items1, items2)
+print(new_list)
 
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -50,11 +48,14 @@ def merge_sort(items):
    
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
-    if len(items) <= 1:
-        return items
+#     if len(items) <= 1:
+#         return items
 
-    left, right = merge_sort(item[:len(item)/2]), merge_sort(item[len(items)/2:])
-    return merge(left, right)
+#     left, right = merge_sort(items[:len(items)/2]), merge_sort(items[len(items)/2:])
+#     return merge(left, right)
+
+# items = [9,4,6,23,65,34,44]
+# print(merge_sort(items))
 
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range
