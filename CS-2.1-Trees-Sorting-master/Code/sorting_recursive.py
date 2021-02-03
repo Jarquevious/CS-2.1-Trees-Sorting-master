@@ -1,6 +1,4 @@
 #!python
-
-
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
@@ -16,10 +14,27 @@ def merge(items1, items2):
     i = j = 0
 
     while i < len_items1 and j < len_items2:
-        if items1 <= items2[j]:
+        if items1[i] <= items2[j]:
             sorted_list.append(items1[i])
             i+=1
-            
+        else:
+            sorted_list.append(items2[j])
+            j+=1
+
+    while i < len_items1:
+        sorted_list.append([i])
+        i+=1
+
+    while j < len_items2:
+        sorted_list.append([j])
+        j+=1
+
+    return sorted_list
+        
+
+items1 = [9,4,6,23,65,34,44]
+items2 = [23,65,8,3,45,87,34]
+print(merge(items1, items2))
 
 
 
@@ -30,12 +45,9 @@ def merge_sort(items):
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check if list is so small it's already sorted (base case)
-    if len(items) == 1:
-        return items
+   
     # TODO: Split items list into approximately equal halves
-    elif new_items == ((items)/2):
-    left = range(0, (new_items/2) - 1)
-    right = 
+   
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
 
