@@ -14,7 +14,7 @@ def merge(items1, items2):
     # Base Cases
 
     # If both list are empty.
-    if not items and not items2:
+    if not items1 and not items2:
         return sorted_list
 
     # If items1 has items and items2 does not. 
@@ -26,15 +26,29 @@ def merge(items1, items2):
         return sorted_list + items2
 
     if items1 and items2:
-        
+      
+        if items1[0] <= items2[0]:
+             
+             sorted_list.append(items1[0])
+
+             sorted_list = sorted_list + merge(items1[1:], items2)
+
+        if items1[0] > items2[0]:
+            
+            sorted_list.append(items2[0])
+
+            sorted_list = sorted_list + merge(items1, items2[1:])
+    
+    return sorted_list
+
+
+
+
         
 
    
    
-    len_items1 = len(items1)
-    len_items2 = len(items2)
-    i = j = 0
-
+ 
      
         
 
