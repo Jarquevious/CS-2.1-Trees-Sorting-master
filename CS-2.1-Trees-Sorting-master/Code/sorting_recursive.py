@@ -122,10 +122,24 @@ def partition(items, low, high):
     TODO: Running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Choose a pivot any way and document your method in docstring above
+    index = ( low - 1 )
+    pivot = items[high]
+
     # TODO: Loop through all items in range [low...high]
-    # TODO: Move items less than pivot into front of range [low...p-1]
+    for j in range(low, high):
+        # TODO: Move items less than pivot into front of range [low...p-1]
+        if items[j] <= pivot:
+            # Increment to the next index by 1.
+            index += 1 
+            # Swap items[index] for items[high]
+            items[index], items[j] = items[j], items[index]
+
     # TODO: Move items greater than pivot into back of range [p+1...high]
+    items[index + 1], items[high] = items[high], items[index + 1]
+
     # TODO: Move pivot item into final position [p] and return index p
+    return index + 1
+    
 
 
 def quick_sort(items, low=None, high=None):
@@ -135,20 +149,39 @@ def quick_sort(items, low=None, high=None):
     TODO: Worst case running time: ??? Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check if high and low range bounds have default values (not given)
+    if low == None:
+        low = 0
+    if high == None:
+        high = len(items) - 1
+    
     # TODO: Check if list or range is so small it's already sorted (base case)
+    if len(items) < 1:
+        return items 
     # TODO: Partition items in-place around a pivot and get index of pivot
-    # TODO: Sort each sublist range by recursively calling quick sort
+    if low < high:
+        pivot = partition(items, low, high)
+        # TODO: Sort each sublist range by recursively calling quick sort
+        quick_sort(items, low, pivot-1)
+        quick_sort(items, pivot+1, high)
+    return items 
 
 
 items1 = [4,5,6,7,8,9]
 items2 = [23,24,25,26,27,28]
 new_list=merge(items1, items2)
-print('Merge newly sorted list: ')
+print('Merge function newly sorted list: ')
 print(new_list)
 
 
 items = [45,2,6,8,3,27,55,34,8,1,56,67,234]
 print('')
-print('Merge Sorted newly sorted list: ')
+print('Merge_sort function newly sorted list: ')
 new = merge_sort(items)
 print(new)
+
+items = [56,34,23,17,11,4,14,5,66,24,76,32]
+
+print('')
+print('Quicksort function new sorted list: ')
+print(quick_sort(quick_sort(items)))
+
