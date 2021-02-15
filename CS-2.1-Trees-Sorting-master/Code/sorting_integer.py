@@ -32,8 +32,8 @@ def bucket_sort(numbers, num_buckets=10):
     # TODO: Create list of buckets to store numbers in subranges of input range
     ##################################################################################
     buckets = []
-    for bucket in buckets:
-        buckets.append[[]]
+    for i in range(num_buckets+1):
+        buckets.append([])
 
     # TODO: Loop over given numbers and place each item in appropriate bucket
     for num in numbers: 
@@ -41,11 +41,38 @@ def bucket_sort(numbers, num_buckets=10):
         buckets[index].append(num)
 
     # TODO: Sort each bucket using any sorting algorithm (recursive or another)
+    
+    # for bucket in buckets:
+    #     for i in range(1, len(bucket)):
+    #         j = i - 1
+    #         num = bucket[i]
+    #         while j >= 0:
+    #             if bucket[i] < bucket[j]:
+    #                 bucket[j+1] = bucket[j]
+    #                 bucket[j] = num
+    #                 j -= 1
+    #             else:
+    #                 break
 
+    for i in range(1, len(buckets)):
+        # Comparison operator 
+        while buckets[i-1] > buckets[i] and i > 0:
+            # Swap items 
+            buckets[i], buckets[i-1] = buckets[i-1], buckets[i]
+            # Continue looping over items
+            i-=1
+
+    return buckets
 
     # TODO: Loop over buckets and append each bucket's numbers into output list
+    output = []
+    for bucket in buckets:
+        for num in bucket:
+            output.append(num)
+
+    return output
     # FIXME: Improve this to mutate input instead of creating new output list
 
 
 numbers=[10,3,6,2,8]
-bucket_sort(numbers, num_buckets=10)
+print(bucket_sort(numbers, num_buckets=10))
